@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <!--  Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3 -->
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="/js/index.js"></script>
+
+  <script>
+  </script>
+</head>
+<body>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="editPhone">Phone</label>
+        <input type="text" class="form-control" id="editPhone" value="200">
+        <label class="sr-only" for="editQueue">Queue</label>
+        <input type="text" class="form-control" id="editQueue" value="support">
+      </div>
+    </form>
+
+    <hr>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <div>
+          <button type="button" class="btn btn-default" id="btnSubscribe">
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+          Subscribe
+          </button>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-default" id="btnActionExtensionState">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            ActionExtensionState
+          </button>
+          <span>ExtensionState: <span class="label label-default" id="spanStatus" value="">Unknown</span></span>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-default wrtc-actions" id="btnQueueAdd" data-action="queueadd">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+            QueueAdd
+          </button>
+          <button type="button" class="btn btn-default wrtc-actions" id="btnQueueRemove" data-action="queueremove">
+            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+            QueueRemove
+          </button>
+          <button type="button" class="btn btn-default wrtc-actions" id="btnQueuePause" data-action="queuepause">
+            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+            QueuePause
+          </button>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+
+</body>
+</html>
