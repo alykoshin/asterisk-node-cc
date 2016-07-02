@@ -16,6 +16,11 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" >
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/EventEmitter/5.1.0/EventEmitter.js"></script>-->
+
   <script src="/socket.io/socket.io.js"></script>
 
   <script src="/js/index.js"></script>
@@ -42,18 +47,38 @@
     <form class="form-inline">
       <div class="form-group">
         <div>
-          <button type="button" class="btn btn-default" id="btnSubscribe">
+          <button type="button" class="btn btn-default" id="btnSubscribe" disabled="true">
           <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
           Subscribe
           </button>
         </div>
 
         <div>
-          <button type="button" class="btn btn-default" id="btnActionExtensionState">
+          <button type="button" class="btn btn-default wrtc-actions" id="btnActionPresenceState" data-action="presencestate">
             <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-            ActionExtensionState
+            PresenceState
           </button>
-          <span>ExtensionState: <span class="label label-default" id="spanStatus" value="">Unknown</span></span>
+          <button type="button" class="btn btn-default wrtc-actions-no" id="btnActionExtensionState" data-action="extensionstate">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            ExtensionState
+          </button>
+          <span>ExtensionState: <span class="label label-default" id="spanExtensionState" value="">Unknown</span></span>
+          <span>DeviceState: <span class="label label-default" id="spanDeviceState" value="">Unknown</span></span>
+        </div>
+
+       <div>
+          <button type="button" class="btn btn-default wrtc-actions" id="btnActionCoreStatus" data-action="corestatus">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            CoreStatus
+          </button>
+          <button type="button" class="btn btn-default wrtc-actions" id="btnActionQueueStatus" data-action="queuestatus">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            QueueStatus
+          </button>
+          <button type="button" class="btn btn-default wrtc-actions" id="btnActionQueueMemberStatus" data-action="queuememberstatus">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            QueueStatus(Member)
+          </button>
         </div>
 
         <div>
@@ -68,6 +93,10 @@
           <button type="button" class="btn btn-default wrtc-actions" id="btnQueuePause" data-action="queuepause">
             <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
             QueuePause
+          </button>
+         <button type="button" class="btn btn-default wrtc-actions" id="btnQueueStatus" data-action="queuestatus">
+            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+            QueueStatus
           </button>
         </div>
 
