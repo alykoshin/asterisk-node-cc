@@ -48,8 +48,8 @@
       <div class="form-group">
         <div>
           <button type="button" class="btn btn-default" id="btnSubscribe" disabled="true">
-          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-          Subscribe
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            Subscribe
           </button>
         </div>
 
@@ -66,7 +66,7 @@
           <span>DeviceState: <span class="label label-default" id="spanDeviceState" value="">Unknown</span></span>
         </div>
 
-       <div>
+        <div>
           <button type="button" class="btn btn-default wrtc-actions" id="btnActionCoreStatus" data-action="corestatus">
             <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
             CoreStatus
@@ -94,13 +94,35 @@
             <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
             QueuePause
           </button>
-         <button type="button" class="btn btn-default wrtc-actions" id="btnQueueStatus" data-action="queuestatus">
+          <button type="button" class="btn btn-default wrtc-actions" id="btnQueueStatus" data-action="queuestatus">
             <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
             QueueStatus
           </button>
         </div>
-
       </div>
+
+      <hr>
+
+      <div>
+        <div class = "form-group">
+          <label for = "textareaSend">Text Area</label>
+          <textarea class = "form-control" rows = "7" id="textareaSend">
+{
+  "action":  "Atxfer",
+  "channel": "SIP/200-00000000",
+  "exten":   "201",
+  "context": "cc"
+}
+          </textarea>
+        </div>
+        <div>
+          <button type="button" class="btn btn-default" id="btnSend">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            Send
+          </button>
+        </div>
+      </div>
+
     </form>
 
   </div>

@@ -10,7 +10,7 @@ var Link = function(uri, opts) {
   // temporary backward compatibility
   var socketIO = io();
   window.socketIO = socketIO;
-  
+
 
   self.on = function(/* arguments */) {
     socketIO.on.apply(socketIO, arguments);
@@ -445,6 +445,34 @@ var onDocumentReady = function() {
     link.doActionExtensionState(phone, function(err, statusCode, statusText) {
       if (err) { return; }
       setExtensionState(statusText);
+    });
+  });
+
+  $('#btnSend').click( function(event) {
+    var txt = $('#textareaSend').val();
+    var msg;
+    console.log(txt);
+    try {
+      msg = JSON.parse(txt);
+    } catch (e) {
+      toaster.show('error', 'Invalid Input', JSON.stringify(e));
+      console.log(e);
+      return;
+    }
+    // var action = msg.action;
+    // if (!action) {
+    //   var err = 'action field cannot be empty';
+    //   toaster.show('error', 'Invalid Input', err);
+    //   console.log(err);
+    //   return;
+    // }
+    var action = 'raw';//+action;
+    link.action(action, msg, function(err, res) {
+      if (err) {
+        toaster.show('error', action, JSON.stringify(err));
+        return;
+      }
+      toaster.show('info', action, JSON.stringify(res)).css("font-size", "10px");
     });
   });
 
